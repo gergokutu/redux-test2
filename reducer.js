@@ -6,6 +6,8 @@ function reducer(state = initialState, action) {
       return state + action.payload;
     case "REPLACE":
       return action.payload;
+    case "SQUARE":
+      return action.payload * action.payload;
     default:
       return state;
   }
