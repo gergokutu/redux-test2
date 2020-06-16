@@ -7,16 +7,16 @@ console.log("Initial state of the store:", store.getState());
 // When an action dispatched to the store
 store.subscribe(() => {
   console.log("Initial state of the store:", store.getState());
-})
+});
 
 // Dispatch actions to the store
 store.dispatch({
   type: "ADD",
   payload: 42
-})
+});
 
 store.dispatch({
   type: "REPLACE",
   payload: 5
-})
+});
 

@@ -9,6 +9,6 @@ function reducer(state = initialState, action) {
     default:
       return state;
   }
-}
+};
 
 module.exports = { reducer };
