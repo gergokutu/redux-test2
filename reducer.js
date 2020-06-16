@@ -1,7 +1,14 @@
 const initialState = 0;
 
 function reducer(state = initialState, action) {
-  return state;
+  switch(action.type) {
+    case "ADD":
+      return state + action.payload;
+    case "REPLACE":
+      return action.payload;
+    default:
+      return state;
+  }
 }
 
 module.exports = { reducer };
