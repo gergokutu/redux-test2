@@ -22,7 +22,7 @@ function getGenreStats(storeState) {
      
     acc[key]++;
     return acc;
-  }, {});
+  }, {}); // reducer starts with an empty object => {}
 };
 
 module.exports = { reducer, getGenreStats };
