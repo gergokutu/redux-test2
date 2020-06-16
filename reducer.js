@@ -2,14 +2,18 @@ const initialState = 0;
 
 function reducer(state = initialState, action) {
   switch(action.type) {
-    case "ADD":
+    case "ADD": {
       return state + action.payload;
-    case "REPLACE":
+    }
+    case "REPLACE": {
       return action.payload;
-    case "SQUARE":
+    } 
+    case "SQUARE": {
       return action.payload * action.payload;
-    default:
+    } 
+    default: {
       return state;
+    }  
   }
 };
 

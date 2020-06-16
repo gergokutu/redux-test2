@@ -1,5 +1,5 @@
 const initialState = {
-  user: null,
+  user: null
 }
 
 function reducer(state = initialState, action) {
@@ -7,13 +7,13 @@ function reducer(state = initialState, action) {
     case "LOGOUT": {
       return {
         ...state,
-        user: null,
+        user: null
       };
     } 
     case "LOGIN":
       return {
         ...state,
-        user: action.payload,
+        user: action.payload
       };
     case "UPDATE_LOGGEDIN_USER":
       if (!state.user) {
@@ -28,7 +28,7 @@ function reducer(state = initialState, action) {
           ...state.user,
           // and then add updates
           ...action.payload,
-        },
+        }
       };
     default: {
       return state;
