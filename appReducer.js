@@ -31,6 +31,12 @@ function reducer(state = initialState, action) {
           ...action.payload,
         }
       };
+    case "TOGGLE_DARK_MODE": {
+      return {
+        ...state,
+        darkMode: !state.darkMode
+      }
+    }
     default: {
       return state;
     }
