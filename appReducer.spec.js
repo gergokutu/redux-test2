@@ -72,3 +72,32 @@ test("Update logged in user", () => {
     pet: "cat"
   });
 });
+
+test("Switching to and from dark mode works", () => {
+  const store = redux.createStore(reducer);
+  // expect(store.getState().darkMode).toBe("false");
+  expect(store.getState().darkMode).toBeFalsy();
+
+  store.dispatch({
+    type: "TOGGLE_DARK_MODE"
+  });
+  // expect(store.getState().darkMode).toBe(true);
+  expect(store.getState().darkMode).toBeTruthy();
+
+  store.dispatch({
+    type: "LOGIN",
+    payload: {
+      firstName: "Bla",
+      lastName: "op 't Bla",
+      age: 1234,
+    },
+  });
+
+  expect(store.getState().darkMode).toBe(true);
+
+  store.dispatch({
+    type: "LOGOUT",
+  });
+
+  expect(store.getState().darkMode).toBe(true); 
+});
