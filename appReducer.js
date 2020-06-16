@@ -1,5 +1,6 @@
 const initialState = {
-  user: null
+  user: null,
+  darkMode: false
 }
 
 function reducer(state = initialState, action) {
