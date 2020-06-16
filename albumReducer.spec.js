@@ -1,5 +1,5 @@
 const redux = require("redux");
-const { reducer } = require("./albumReducer");
+const { reducer, getGenreStats } = require("./albumReducer");
 
 test("Initial state is an empty array", () => {
   const store = redux.createStore(reducer);
@@ -39,4 +39,46 @@ test("Adding new albums possible", () => {
       genre: "jazz"
     }
   ]);
+});
+
+test("Get genre stats selector function works", () => {
+  const store = redux.createStore(reducer);
+
+  expect(getGenreStats(store.getState())).toEqual({});
+
+  const albums = [
+    {
+      title: "The Road to Ithaca",
+      artist: "Shai Maestro",
+      genre: "jazz"
+    },
+    {
+      title: "Landmarks",
+      artist: "Brian Blade & The Fellowship Band",
+      genre: "jazz"
+    },
+    {
+      title: "Immigrance",
+      artist: "Snarky Puppy",
+      genre: "fusion"
+    },
+    {
+      title: "Moderat",
+      artist: "Moderat",
+      genre: "electronica"
+    }
+  ];
+
+  albums.forEach(album => {
+    store.dispatch({
+      type: "ADD_ALBUM",
+      payload: album
+    });
+  });
+
+  expect(getGenreStats(store.getState())).toEqual({
+    jazz: 2,
+    fusion: 1,
+    electronica: 1
+  });
 });
